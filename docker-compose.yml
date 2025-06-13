@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  hbase:
+    image: harisekhon/hbase
+    container_name: hbase
+    ports:
+      - "2181:2181"  # Zookeeper
+      - "16000:16000"  # HMaster
+      - "16010:16010"  # HMaster Web UI
+      - "16020:16020"  # HRegionServer
+      - "16030:16030"  # HRegionServer Web UI
+    environment:
+      - HBASE_MANAGES_ZK=true
+    #volumes:
+#- ./data:/data  # Mount local data directory to container
